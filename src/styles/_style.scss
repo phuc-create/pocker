@@ -1,0 +1,26 @@
+.boad-started{
+  display: flex;
+}
+.box-paper{
+  transition:0.5s;
+  transform: perspective(1000px) rotateY(180deg);
+  &.rotate{
+  transform: perspective(1000px) rotateY(0deg);
+  background-image:unset;
+  &::before{
+    background-image: unset;
+  }
+  }
+  &::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('../images/card.png');
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+}

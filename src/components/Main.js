@@ -1,25 +1,21 @@
-import {Button, CardActions, CardContent, Typography } from '@mui/material'
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { Box } from '@mui/material'
+import LinkControl from './customs/Link'
 const Main = () => {
-  
+    const styles = {
+        BoxStyle:{
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center',
+            flexDirection:'column',
+            borderRadius:'10px'
+        }
+    }
     return (
         <React.Fragment>
-            <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                  Pocker Game 
-                </Typography>
-                <Button variant="outlined">
-                    <Link className="link-control" to="/debt">
-                      Your Debts
-                    </Link>
-                </Button>
-      
-            </CardContent>
-            <CardActions>
-                <Button size="small">Learn More</Button>
-            </CardActions>
+            <Box style={styles.BoxStyle} sx={{ bgcolor: '#cfe8fc',margin:'20px',width:'450px' }} >
+                <LinkControl link="start" title="New Game" />
+            </Box>
         </React.Fragment>
     )
 }
