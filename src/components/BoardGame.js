@@ -98,7 +98,7 @@ const BoardGame = () => {
                 stop ? <Button color="error" variant="contained" sx={{margin:'20px',padding:'10px',width:'200px'}} onClick={handleRestart}>Restart</Button> : null
             }
             <div className='boad-started'>
-                <PlayerCard name="Phucs" 
+                <PlayerCard name="YOU" 
                     paper={papers.player} 
                     action={takeCardAction} 
                     pick={pickCard.player} 
@@ -108,12 +108,11 @@ const BoardGame = () => {
                     view={view}
                     handleViewResult={handleViewResult}/>
                 <PlayerCard 
-                    name="system" 
+                    name="SYSTEM" 
                     paper={papers.system} 
                     action={takeCardAction} 
                     pick={pickCard.system} 
                     stop={stop} 
-                    result={result}
                     checker={checker}
                     view={view}
                     handleViewResult={handleViewResult}/>

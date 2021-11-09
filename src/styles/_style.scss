@@ -1,14 +1,20 @@
 .boad-started{
   display: flex;
+  width: 100%;
+  
 }
 .box-paper{
+  position: relative;
   transition:0.5s;
-  transform: perspective(1000px) rotateY(180deg);
+  transform: rotateY(180deg);
+  background: #fff;
+  color: #000;
   &.rotate{
-  transform: perspective(1000px) rotateY(0deg);
+  transform: rotateY(0deg);
   background-image:unset;
+  transition: .5s;
   &::before{
-    background-image: unset;
+    opacity: 0;
   }
   }
   &::before{
@@ -22,5 +28,12 @@
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
+    transition: .5s;
+    opacity: 1;
   }
+}
+.icon-card{
+  width: 40px;
+  height:40px;
+  margin: 12px 0px;
 }

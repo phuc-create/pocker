@@ -9,7 +9,7 @@ import classNames from 'classnames'
 const PlayerCard = ({name,action,pick,stop,result,view,checker,handleViewResult}) => {
    
     return (
-        <Card sx={{ minWidth: '50%',margin:'15px' }}>
+        <Card sx={{ minWidth: '50%',padding:'5px' }}>
             <CardContent>
                 <Typography sx={{ fontSize: 22 }} color="text.primary" gutterBottom>
                     {name}
@@ -17,8 +17,8 @@ const PlayerCard = ({name,action,pick,stop,result,view,checker,handleViewResult}
                 <BoardCard check={checker} cards={pick}/>
                 {
                     view ?
-                        <Typography variant="h4" component="div" sx={{marginTop:'30px'}}>
-                        Result: {result.WINNER}
+                        <Typography variant="h4" component="div" sx={{marginTop:'25px'}}>
+                            {result && result.WINNER ?`Result: ${result.WINNER}` : ''}
                         </Typography> : null
                 }
                 
@@ -69,7 +69,7 @@ const BoardCard = ({check,cards}) =>{
                         <div>
                             {card.ns}
                         </div>
-                        {card.suits}
+                        <img src={card.icon} className='icon-card'/>
                         <div>
                             {card.value}
                         </div>
