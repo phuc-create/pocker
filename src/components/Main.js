@@ -13,7 +13,7 @@ const Main = () => {
     }
     return (
         <React.Fragment>
-            <Box style={styles.BoxStyle} sx={{ bgcolor: '#cfe8fc',margin:'20px',width:'450px' }} >
+            <Box style={styles.BoxStyle} sx={{margin:'20px',width:'450px' }} >
                 <LinkControl link="start" title="New Game" />
             </Box>
         </React.Fragment>

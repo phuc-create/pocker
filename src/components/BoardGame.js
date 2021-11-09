@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Container } from '@mui/material'
+import { Container } from '@mui/material'
 import PlayerCard from './customs/PlayerCard'
 import {data} from '../api/Api'
 
@@ -86,7 +86,8 @@ const BoardGame = () => {
             display:'flex',
             justifyContent:'center',
             alignItems:'center',
-            flexDirection:'column'
+            flexDirection:'column',
+            padding:0
         }
     }
     useEffect(()=>{
@@ -94,9 +95,6 @@ const BoardGame = () => {
     },[])
     return (
         <Container className='board'  maxWidth="lg" style={styles.boardGame}>
-            {
-                stop ? <Button color="error" variant="contained" sx={{margin:'20px',padding:'10px',width:'200px'}} onClick={handleRestart}>Restart</Button> : null
-            }
             <div className='boad-started'>
                 <PlayerCard name="YOU" 
                     paper={papers.player} 
@@ -106,16 +104,16 @@ const BoardGame = () => {
                     result={result}
                     checker={checker}
                     view={view}
-                    handleViewResult={handleViewResult}/>
+                    handleViewResult={handleViewResult}
+                    handleRestart={handleRestart}/>
                 <PlayerCard 
                     name="SYSTEM" 
                     paper={papers.system} 
                     action={takeCardAction} 
                     pick={pickCard.system} 
-                    stop={stop} 
                     checker={checker}
                     view={view}
-                    handleViewResult={handleViewResult}/>
+                />
             </div>
         </Container>
     )

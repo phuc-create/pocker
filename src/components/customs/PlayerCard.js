@@ -6,11 +6,11 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { Box, Paper } from '@mui/material'
 import classNames from 'classnames'
-const PlayerCard = ({name,action,pick,stop,result,view,checker,handleViewResult}) => {
+const PlayerCard = ({name,action,pick,stop,result,view,checker,handleViewResult,handleRestart}) => {
    
     return (
         <Card sx={{ minWidth: '50%',padding:'5px' }}>
-            <CardContent>
+            <CardContent sx={{padding:'5px'}}>
                 <Typography sx={{ fontSize: 22 }} color="text.primary" gutterBottom>
                     {name}
                 </Typography>
@@ -25,7 +25,25 @@ const PlayerCard = ({name,action,pick,stop,result,view,checker,handleViewResult}
             </CardContent>
             <CardActions>
                 {
-                    stop ?  <Button size="small" onClick={()=> handleViewResult()}>Check results</Button> : <Button size="small" onClick={()=> action()} disabled={stop}>Take</Button>
+                    stop ?  <Button 
+                        color="success" 
+                        variant="contained" 
+                        sx={{margin:'10px',padding:'10px'}} size="small" 
+                        onClick={()=> handleViewResult()}>Check results</Button> :
+                        <Button 
+                            color="success" 
+                            variant="contained" 
+                            sx={{margin:'10px',padding:'10px'}} 
+                            size="small" 
+                            onClick={()=> action()} 
+                            disabled={stop}>Take</Button>
+                }
+                {
+                    stop ?  <Button 
+                        color="error" 
+                        variant="contained" 
+                        sx={{margin:'10px',padding:'10px'}} 
+                        onClick={() =>handleRestart()}>Restart</Button> : null
                 }
                
             </CardActions>
@@ -57,7 +75,7 @@ const BoardCard = ({check,cards}) =>{
                 transition:'0.5s',
                 backgroundColor: 'primary.dark',
                 '& > :not(style)': {
-                    m: 1,
+                    m: 0.4,
                     width: 140,
                     height: 228, flexDirection:'column',
                 },
